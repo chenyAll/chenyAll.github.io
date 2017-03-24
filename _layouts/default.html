@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta name="description" content="{{site.description}}"/>
+		<meta name="author" content=" {{site.author}} "/>
+		<meta name="keywords" content="陈意的博客，博客：{{site.description}}"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<title>{{site.title}}</title>
+		<link href="//cdn.bootcss.com/bootstrap/3.0.2/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="{{site.url}}/assets/css/main.css"/>
+		<script src="//cdn.bootcss.com/jquery/1.9.0/jquery.min.js"></script>
+		<script src="//cdn.bootcss.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+		<script src="//cdn.bootcss.com/bootstrap/3.0.2/js/affix.min.js"></script>
+	</head>
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="myNav">
+						<span class="sr-only">陈意博客</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="/" class="navbar-brand"><span class="glyphicon glyphicon-bold"></span>陈意的blog</a>
+				</div>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="http://chen-y.github.io/">About Me</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="container">
+			<div class="jumbotron">
+				<h2>欢迎访问我的博客</h2>
+				<p>这些是真实的例子或者平常的工作实例！</p>
+				<p class="text-warning">您可以发表您的意见或者学习它</p>
+			</div>
+			<div class="row">
+				<div class="col-sm-9">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<span class="panel-title"><strong>{{page.title}}</strong></span>
+						</div>
+						<div class="panel-body">
+							{{page.content}}
+						</div>
+						<div class="panel-footer">
+							<nav aria-label="...">
+								<ul class="pager" style="margin: 0;">
+									
+										<li class="pull-left"><a href="javascript:;">prev</a></li>
+									
+									<li class="pull-right"><a href="javascript:;">next</a></li>
+								</ul>
+							</nav>
+						</div>
+					</div>
+				</div>
+				<div class="col-sm-3">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<a href="http://chen-y.github.io/" class="panel-title">About Me</a>
+						</div>
+						<div class="panel-body">
+							
+						</div>
+					</div>
+					<ul class="navMenu dropdown">
+						{% for item in site.categories %}
+						<li>
+							<h3 class="" data-toggle="collapse" data-target="#{{item.first}}s" >{{item.first}}</h3>
+							
+							<div class="list-group collapse in" id="{{item.first}}s">
+								{% for row in item.last %}
+									<a href="{{row.url}}" class="list-group-item">{{row.title}}</a>
+								{% endfor %}
+							</div>
+						</li>
+						{% endfor %}
+					</ul>
+					
+				</div>
+				
+			</div>
+		</div>
+	</body>
+</html>

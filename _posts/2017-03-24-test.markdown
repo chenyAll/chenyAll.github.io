@@ -1,0 +1,12 @@
+---
+layout:  default
+title:   这是一片测试文章
+date:    2017-03-24 21:40
+categories: html
+---
+this is a test article
+{% highlight ruby linenos %}
+def foo
+  puts 'foo'
+end
+{% endhighlight %}
