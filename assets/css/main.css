@@ -1,5 +1,9 @@
 body{
 	padding-top: 70px;
+	background:#000 url(../images/bg.jpg) no-repeat center;
+	background-attachment: fixed;
+	background-size: 100% 100%;
+	overflow: hidden;
 }
 .navMenu{
 	list-style-type: none;
@@ -28,4 +32,10 @@ body{
 .navMenu li .list-group .list-group-item{
 	border: none;
 	text-align: center;
+}
+.articleCotainer>ul{
+	display: none;
+}
+.list-group-item{
+	cursor: pointer;
 }

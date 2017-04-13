@@ -20,9 +20,6 @@ version: 0.0.1
 description: 陈意的博客,博客,js,css,app,html,html5,css3,jquery,angular,javascript,bootstrap,博客相关内容
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-paginate:5
-paginate_path: "page:num"
-LSI:true
 destination:  ./_site
 highlighter:
    pygments:true
