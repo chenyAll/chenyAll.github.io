@@ -5,8 +5,4 @@ date:    2017-03-24 21:40
 category: JEKYLL
 ---
 this is a test article
-{% highlight rouge linenos %}
-def foo
-  puts 'foo'
-end
-{% endhighlight %}
+
