@@ -4,9 +4,12 @@ author:    chenyi
 title:     测试语法高亮
 category:  HTML
 ---
-{% highlight ruby linenos %}
+{% highlight javascript linenos %}
 function a(){
 	alert();
 }
+/*
+ 	这是一个函数
+ */
 {% endhighlight %}
 
