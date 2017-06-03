@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta name="description" content="{{site.description}}"/>
+		<meta name="author" content=" {{site.author}} "/>
+		<meta name="keywords" content="陈意的博客，博客：{{site.description}}"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+		<title>{{site.title}}</title>
+		<link rel="icon" type="text/css" href="{{site.url}}/favicon.ico"/>
+		<link href="https://cdn.bootcss.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="assets/css/main.css" media="screen and (min-width:768px)" />
+		<link rel="stylesheet" type="text/css" href="weui/dist/style/weui.css" media="screen and (max-width:768px)"/>
+		<script src="https://cdn.bootcss.com/jquery/3.0.0/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="https://res.wx.qq.com/open/libs/weuijs/1.1.1/weui.min.js"></script>
+		<script src="assets/script/in.js" type="text/javascript" charset="utf-8"></script>
+		
+		<style type="text/css">
+			@media screen and (min-width: 300px) and (max-width: 768px) {
+				html{
+					height: 100%;
+				}
+				body{
+					height : 100%;
+					background: #F4F4F4;
+				}
+				.weui-tabbar__icon{
+					font-size: 16px;
+					line-height: 27px;
+				}
+				p{
+					margin: 0;
+				}
+				a:focus,a:hover{
+					text-decoration: none;
+				}
+				.weui-cell__bd p{
+					font-size: 13px;
+					color: #888888;
+					white-space: nowrap;
+					word-break: normal;
+					text-overflow: ellipsis;
+					overflow: hidden;
+				}
+				.weui-cell__bd{
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+				}
+			}
+			
+		</style>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var a = new startIn({
+				href : 'assets/images/run'+parseInt(Math.random()*4+1)+'.gif',
+				ts : '.2s all ease-in',
+				zIndex : 2000
+			});
+		</script>
+		<div class="navbar navbar-fixed-top navbar-inverse hidden-xs" role="navigation">
+			<div class="container">
+				<div class="navbar-header">
+					<a href="classify.html" class="navbar-brand"><span class="glyphicon glyphicon-list"></span> 分类文集</a>
+				</div>
+			</div>
+		</div>
+		<div class="container hidden-xs" style="color: #000;">
+			<div class="jumbotron" style="background-color: initial;">
+				<div class="container">
+					<h1>陈意的网络日志</h1>
+					<p>Welcome to my blog. These are some examples of everyday learning,<br/>
+						 perception, or work. You can read and learn it. Although it may not be true,<br/>
+						 you can give your valuable advice!</p>
+					<p><a class="btn btn-success btn-lg" role="button">
+						Ready More</a>
+					</p>
+				</div>
+			</div>
+			<div class="page-header" style="border-bottom-color: #999;">
+				<h2>最近的10篇文章 <small>最后更新：{{site.time | date_to_long_string  }}</small></h2>
+			</div>
+			<div class="container">
+				{% if site.posts.size < 10 %}
+					{% for post in site.posts %}
+						<div class="row">
+							<div class="col-sm-8">
+								<div class="article-item">
+									<a href="{{post.url}}">
+										<span class="article-title">{{post.title}}</span>
+										<span class="article-title-small">{{post.date | date_to_long_string }} | {{post.author}}</span>
+										<span class="article-content">
+											{{post.excerpt}}
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				{% else %}
+					{% for i in (1..10) %}
+						<div class="row">
+							<div class="col-sm-8">
+								<div class="article-item">
+									<a href="{{site.posts[i].url}}">
+										<span class="article-title">{{site.posts[i].title}}</span>
+										<span class="article-title-small">{{site.posts[i].date | date_to_long_string }} | {{site.posts[i].author}}</span>
+										<span class="article-content">
+											{{site.posts[i].excerpt}}
+										</span>
+									</a>
+								</div>
+							</div>
+						</div>
+					{% endfor %}
+				{% endif %}
+
+			</div>
+			<div class="copyright">
+				<div>Chen Yi</div>
+				<p class="text-muted">
+					<span> Copyright &copy; 2017 chenyi. All Rights Reserved. </span>
+				</p>
+			</div>
+		</div>
+		<div class="page tabbar js_show visible-xs" style="height: 100%;">
+		    <div class="page__bd" style="height: 100%;">
+		        <div class="weui-tab">
+		            <div class="weui-tab__panel">
+						<div class="weui-tab__content" style="display: block;">
+							
+							<div class="weui-search-bar" id="searchBar">
+					            <form class="weui-search-bar__form">
+					                <div class="weui-search-bar__box">
+					                    <i class="weui-icon-search"></i>
+					                    <input type="search" class="weui-search-bar__input" id="searchInput" placeholder="搜索" required="">
+					                    <a href="javascript:" class="weui-icon-clear" id="searchClear"></a>
+					                </div>
+					                <label class="weui-search-bar__label" id="searchText">
+					                    <i class="weui-icon-search"></i>
+					                    <span>搜索</span>
+					                </label>
+					            </form>
+					            <a href="javascript:" class="weui-search-bar__cancel-btn" id="searchCancel">取消</a>
+					        </div>
+					        <div class="weui-cells" style="margin-top: 0;" id="homeReady">
+					        	{% if site.posts.size < 10 %}
+					        		{% for v in site.posts %}
+					        			<div class="weui-cell" data-href="{{v.url}}">
+							                <div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+							                    <img src="assets/images/edit1.png" style="width: 50px;display: block">
+							                    <span class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">读</span>
+							                </div>
+							                <div class="weui-cell__bd">
+							                    <div>{{v.title}}</div>
+							                    {{v.excerpt}}
+							                </div>
+							            </div>
+					        		{% endfor %}
+					        	{% else %}
+					        	
+					        	{% endif %}
+					            
+					            <!--<div class="weui-cell">
+					                <div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+					                    <img src="images/pic_160.png" style="width: 50px;display: block">
+					                    <span class="weui-badge" style="position: absolute;top: -.4em;right: -.4em;">8</span>
+					                </div>
+					                <div class="weui-cell__bd">
+					                    <p>联系人名称</p>
+					                    <p style="font-size: 13px;color: #888888;">摘要信息</p>
+					                </div>
+					            </div>-->
+					        </div>
+							
+						</div>
+						<div class="weui-tab__content">
+							<div class="weui-grids">
+						        
+						        <a href="javascript:;" class="weui-grid">
+						            <div class="weui-grid__icon">
+						                <img src="./assets/images/HTML5.png" alt="HTML5">
+						            </div>
+						            <p class="weui-grid__label">HTML5</p>
+						        </a>
+						        <a href="javascript:;" class="weui-grid">
+						            <div class="weui-grid__icon">
+						                <img src="assets/images/CSS3.png" alt="css3">
+						            </div>
+						            <p class="weui-grid__label">CSS3</p>
+						        </a>
+						        <a href="javascript:;" class="weui-grid">
+						            <div class="weui-grid__icon">
+						                <img src="assets/images/JAVASCRIPT.png" alt="javascript">
+						            </div>
+						            <p class="weui-grid__label">JAVASCRIPT</p>
+						        </a>
+						        <a href="javascript:;" class="weui-grid">
+						            <div class="weui-grid__icon">
+						                <img src="assets/images/NODE.png" alt="NODE">
+						            </div>
+						            <p class="weui-grid__label">NODE</p>
+						        </a>
+						        <a href="javascript:;" class="weui-grid">
+						            <div class="weui-grid__icon">
+						                <img src="assets/images/APP.png" alt="APP">
+						            </div>
+						            <p class="weui-grid__label">APP</p>
+						        </a>
+						        <a href="javascript:;" class="weui-grid">
+						            <div class="weui-grid__icon">
+						                <img src="./assets/images/JQUERY.png" alt="jquery">
+						            </div>
+						            <p class="weui-grid__label">JQUERY</p>
+						        </a>
+						        <a href="javascript:;" class="weui-grid">
+						            <div class="weui-grid__icon">
+						                <img src="./assets/images/JEKYLL.png" alt="">
+						            </div>
+						            <p class="weui-grid__label">JEKYLL</p>
+						        </a>
+						        <a href="javascript:;" class="weui-grid">
+						            <div class="weui-grid__icon">
+						                <img src="./assets/images/PHP.png" alt="php">
+						            </div>
+						            <p class="weui-grid__label">PHP</p>
+						        </a>
+						        <a href="javascript:;" class="weui-grid">
+						            <div class="weui-grid__icon">
+						                <img src="./assets/images/MYSQL.png" alt="mysql">
+						            </div>
+						            <p class="weui-grid__label">MYSQL</p>
+						        </a>
+						    </div>
+							
+						</div>
+						<div class="weui-tab__content" id="see">
+							<div>
+								<img src="assets/images/look.jpg" alt="banner" width="100%" />
+							</div>
+							
+							{% for item in site.posts %}
+								<div class="weui-panel" data-href={{item.url}}>
+						            <div class="weui-panel__hd">{{item.categories[0]}}</div>
+						            <div class="weui-panel__bd">
+						                <div class="weui-media-box weui-media-box_text">
+						                    <h4 class="weui-media-box__title">{{item.title}}</h4>
+						                    {{item.excerpt}}
+						                    <ul class="weui-media-box__info">
+						                        <li class="weui-media-box__info__meta">{{site.title}}</li>
+						                        <li class="weui-media-box__info__meta"></li>
+						                        <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">{{item.date | date_to_string}}</li>
+						                    </ul>
+						                </div>
+						            </div>
+						       </div>
+							{% endfor %}
+							
+						</div>
+						<div class="weui-tab__content">
+							<div class="weui-cells">
+					            <div class="weui-cell">
+					                <div class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+					                    <img src="./assets/images/mylogo.jpg" style="width: 50px;display: block">
+					                </div>
+					                <div class="weui-cell__bd">
+					                    <div>chenyi(陈意)</div>
+					                    <p>有时候肌肉比头脑反应</p>
+					                </div>
+					            </div>
+					        </div>
+						</div>
+		            </div>
+		            <div class="weui-tabbar" id="tab">
+		                <a href="javascript:;" class="weui-tabbar__item">
+		                    <span style="display: inline-block;position: relative;">
+		                    	<span class="glyphicon glyphicon-pencil weui-tabbar__icon"></span>
+		                        <!--<img src="./assets/images/home.png" alt="home" class="weui-tabbar__icon">-->
+		                        <span class="weui-badge" style="position: absolute;top: -2px;right: -13px;">10</span>
+		                    </span>
+		                    <p class="weui-tabbar__label">最近</p>
+		                </a>
+		                <a href="javascript:;" class="weui-tabbar__item">
+		                    <span class="glyphicon glyphicon-bold weui-tabbar__icon"></span>
+		                    <p class="weui-tabbar__label">BLOG</p>
+		                </a>
+		                <a href="javascript:;" class="weui-tabbar__item">
+		                    <span style="display: inline-block;position: relative;">
+		                        <span class="glyphicon glyphicon-eye-open weui-tabbar__icon"></span>
+		                        <span class="weui-badge weui-badge_dot" style="position: absolute;top: 0;right: -6px;"></span>
+		                    </span>
+		                    <p class="weui-tabbar__label">发现</p>
+		                </a>
+		                <a href="javascript:;" class="weui-tabbar__item">
+		                    <span class="glyphicon glyphicon-user weui-tabbar__icon"></span>
+		                    <p class="weui-tabbar__label">我</p>
+		                </a>
+		            </div>
+		        </div>
+		    </div>
+		</div>
+
+	</body>
+	<script type="text/javascript">
+		weui.tab('#tab',{
+		    defaultIndex: 0,
+		    onChange: function(index){
+		    	
+		        $('.weui-tab__content').eq(index).show().siblings().hide();
+		        
+		        var title = '';
+		        
+		        switch (index){
+		        	case 0:
+		        		title = '最近10篇更新';
+		        	break;
+		        	case 1:
+		        		title = 'BLOG';
+		        	break;
+		        	case 2:
+		        		title = '发现';
+		        	break;
+		        	case 3:
+		        		title = 'Me';
+		        	break;
+		        }
+		        document.title.innerHTML = title;
+		    }
+		});
+		setTimeout(function  () {
+			a.hide();
+		},0);
+		
+		//最近查看\n
+		$('#homeReady .weui-cell').on('touchstart',function  (ev) {
+			//点击对象
+			var path = location.origin;
+			var href = path + $(this).data('href');
+			//跳转路径
+			window.location.href = href;
+			
+		});
+		//发现文章\n
+		$('#see .weui-panel').on('touchstart',function  (ev) {
+			//点击对象
+			var path = location.origin;
+			var href = path + $(this).data('href');
+			//跳转路径
+			window.location.href = href;
+			
+		});
+	</script>
+</html>

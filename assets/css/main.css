@@ -1,6 +1,6 @@
 body{
 	padding-top: 70px;
-	background:#000 url(../images/bg.jpg) no-repeat center;
+	background:#000 url(../images/bg1.jpg) no-repeat center;
 	background-attachment: fixed;
 	background-size: 100% 100%;
 	overflow: hidden;
@@ -38,4 +38,38 @@ body{
 }
 .list-group-item{
 	cursor: pointer;
+}
+
+/*
+ 
+ * 文章 item*/
+.article-item>a{
+	display: block;
+	color: #000;
+}
+.article-item>a>span{
+	display: block;
+}
+.article-item>a .article-title{
+	font-size: 20px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	line-height: 2;
+}
+.article-item>a .article-content{
+	white-space: nowrap;
+	line-height: 2;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.article-title-small{
+	color: #999;
+}
+.copyright{
+	    border-top: 1px solid #999;
+	    margin-top: 30px;
+	    padding: 20px 0;
+	    line-height: 20px;
+	    text-align: center;
 }
