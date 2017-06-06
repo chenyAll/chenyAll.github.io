@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"/> 
-		<title>{{site.title}}</title>
+		<title>{{page.title}}</title>
 		<link href="https://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="{{site.url}}/weui/dist/style/weui.css" media="screen and (max-width:768px)"/>
 		<link rel="stylesheet" type="text/css" href="{{site.url}}/assets/css/syntax.css"/>
@@ -17,6 +17,17 @@
 		}
 		.page-header{
 			border-bottom-color: #CCCCCC;
+		}
+		.copyright{
+			text-align: center;
+			padding-top: 20px;
+			border-top: 1px solid #CCCCCC;
+			margin-top: 30px;
+		}
+		@media screen and (max-width:768px ) {
+			img{
+				width: 100%;
+			}
 		}
 	</style>
 	<body>
@@ -43,6 +54,12 @@
 					  {% endfor %}
 					</ol>
 				</div>
+			</div>
+			<div class="copyright">
+				<div>Chen Yi</div>
+				<p class="text-muted">
+					<span>(c) Copyright 2017 chenyi. All Rights Reserved. </span>
+				</p>
 			</div>
 		</div>
 		<div class="page article js_show visible-xs">

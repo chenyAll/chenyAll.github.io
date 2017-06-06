@@ -2,7 +2,6 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
 		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
 		<meta name="description" content="{{site.description}}"/>
 		<meta name="author" content=" {{site.author}} "/>
@@ -93,9 +92,9 @@
 									<a href="{{post.url}}">
 										<span class="article-title">{{post.title}}</span>
 										<span class="article-title-small">{{post.date | date_to_long_string }} | {{post.author}}</span>
-										<span class="article-content">
+										<div class="article-content">
 											{{post.excerpt}}
-										</span>
+										</div>
 									</a>
 								</div>
 							</div>
@@ -109,9 +108,9 @@
 									<a href="{{site.posts[i].url}}">
 										<span class="article-title">{{site.posts[i].title}}</span>
 										<span class="article-title-small">{{site.posts[i].date | date_to_long_string }} | {{site.posts[i].author}}</span>
-										<span class="article-content">
+										<div class="article-content">
 											{{site.posts[i].excerpt}}
-										</span>
+										</div>
 									</a>
 								</div>
 							</div>

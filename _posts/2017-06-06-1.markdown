@@ -1,16 +1,138 @@
 ---
 layout : page
-title : 使用jekll的最初
+title : 使用jekll的最初之jekyll安装
 date : 2017-06-06 16:00
 category : JEKYLL
 ---
 其实一开始我是不知道jekyll这工具的，说来还得从上一家公司的一个后台开发说起。我很感谢他，因为他是一个非常了不起的开发者，从他那里我学到了很多东西。
 
 
-关于jekyll的使用，感谢我自己花了一定的时间去学习它。jekyll官网介绍它其实是一个静态博客工具，但很多时候我是把它应用于项目之中的；
+关于jekyll的使用，感谢我自己花了一定的时间去学习它。jekyll官网介绍它其实是一个静态博客工具，但很多时候我是把它应用于项目之中的。
 
 
-中文网站：[doc-jekyll]
+中文网站：[jekll官网]
 
 
-[doc-jekyll]:http://jekyll.com.cn
+
+首先我们来说说jekyll如何安装吧，当然我所说的都是在windows上进行的。虽然并不推荐这么做！在其他系统上可能体验更好一点。
+
+
+安装jekll首先需要确定是否安装了ruby,因为jekyll的运行/构建是建立在ruby上面的。
+
+
+如果没有安装ruby :
+
+下载地址：[下载ruby] 当然里面还包括了接下需要的devkit。下载你所需要的版本，接下来我们要开始安装了。
+
+
+
+<img src="{{site.url}}/assets/images/installjekyll1.png" />
+
+
+任意选择下载，这里要说的是上面一个rubyinstallers 下面的直接安装文件，而other useful downloads 是解压安装文件根据喜好自行选择。
+
+
+这里我们就选择ruby2.2.6(x64)的文件下载安装：
+
+选择合适的语言，不过这里只有两种供选择：English , 日本语选择ok
+
+
+<img src="{{site.url}}/assets/images/installruby2.png" />
+
+
+然后进入下一步，选择同意 I accept the license ，选择下一步 (next)，选择安装路径，默认c:\ruby(version),最好安装在这个路径，当然你可以
+去掉令人讨厌version版本号，选择Add Ruby executabes to your PATH(将ruby添加到系统path路径里)。
+
+<img src="{{site.url}}/assets/images/installruby3.png" />
+
+点击 install 即可进行安装，由于我之前已经安装了，所以下面的步骤不做演示。
+
+
+安装完成ruby并不代表就可以安装jekyll，接下来我们还得继续安装之前所说的devkit，选择对应的位数下载即可安装，路径依然选择c:\Devkit：
+
+<img src="{{site.url}}/assets/images/installDevkit1.png" />
+
+
+Devkit 安装完成之后，打开cmd 命令行工具输入：
+
+{% highlight ruby %}
+
+C:\Users\ruby -v
+  ruby 2.3.3p222 (2016-11-21 revision 56859) [x64-mingw32]
+
+{% endhighlight %}
+
+安装成功了，需要做一个简单配置，先讲cmd 目录只想c:\devkit：
+
+{% highlight ruby %}
+
+C:\Devkit\ruby dk.rb init
+
+#继续执行
+C:\Devkit\ruby dk.rb install
+
+{% endhighlight %}
+
+如果一路顺风的话。安装ruby会默认安装gem，检测gems是否已经被安装，接下来我们需要利用gem 安装jekyll：
+
+
+{% highlight ruby %}
+
+C:\User\gem -v
+2.5.2
+{% endhighlight %}
+
+
+我开始安装jekyll了：
+
+{% highlight ruby %}
+
+C:\User\gem install jekyll
+
+{% endhighlight %}
+
+{% highlight ruby %}
+
+C:\User\jekyll -v
+jekyll 3.4.3
+{% endhighlight %}
+
+当然还需要安装一个包管理工具：
+
+{% highlight ruby %}
+
+C:\User\gem install bundler
+
+{% endhighlight %}
+
+{% highlight ruby %}
+
+C:\User\bundler -v
+bundler version 1.14.5
+
+{% endhighlight %}
+
+那么基本上完成了jekyll的安装，接下来我们就可以使用它了
+
+{% highlight ruby %}
+
+C:\User\cd d:
+
+#创建一个博客目录
+D:\jekyll new my-blog
+
+#进入该目录
+D:\cd my-blog
+
+#启动服务监听
+D:\jekyll server -w
+
+
+{% endhighlight %}
+
+<img src="{{site.url}}/assets/images/installjekyll2.png" />
+
+那么就可以在浏览器输入 localhost:4000 / 127.0.0.1:4000 浏览你的博客。
+
+[下载ruby]: https://rubyinstaller.org/downloads
+[jekll官网]: http://jekyll.com.cn
