@@ -1,9 +1,0 @@
----
-layout:  page
-author : chanyi
-title:   这是一片测试文章
-date:    2017-03-24 21:40
-category: JEKYLL
----
-this is a test article
-

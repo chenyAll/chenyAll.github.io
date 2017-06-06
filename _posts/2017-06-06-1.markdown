@@ -1,0 +1,12 @@
+---
+layout : page
+title : 使用jekll的最初
+date : 2017-06-06 16:00
+category : JEKYLL
+---
+其实一开始我是不知道jekyll这工具的，说来还得从上一家公司的一个后台开发说起。我很感谢他，因为他是一个非常了不起的开发者，从他那里我学到了很多东西。
+关于jekyll的使用，感谢我自己花了一定的时间去学习它。jekyll官网介绍它其实是一个静态博客工具，但很多时候我是把它应用于项目之中的；
+中文网站：[doc-jekyll]
+
+
+[doc-jekyll]:http://jekyll.com.cn
