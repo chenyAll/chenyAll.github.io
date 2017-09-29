@@ -3,6 +3,7 @@ layout : page
 title : 使用jekll的最初之jekyll安装
 date : 2017-06-06 16:00
 category : JEKYLL
+author : chenyi
 ---
 其实一开始我是不知道jekyll这工具的，说来还得从上一家公司的一个后台开发说起。我很感谢他，因为他是一个非常了不起的开发者，从他那里我学到了很多东西。
 
@@ -125,7 +126,7 @@ D:\jekyll new my-blog
 D:\cd my-blog
 
 #启动服务监听
-D:\jekyll server -w
+D:\my-blog\jekyll server -w
 
 
 {% endhighlight %}

@@ -1,0 +1,36 @@
+---
+layout : page
+title : 关于npm 在使用时发生的错误，no start line
+date : 2017-09-29 21:50
+category : NPM
+author : 陈意
+---
+
+今天在安装node后，使用npm时发生了一些错误：
+
+关于错误提示如下：
+
+{% highlight ruby %}
+#npm install *** *** 
+npm ERR! error:0906D06C:PEM routines:PEM_read_bio:no start line
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     C:\Users\chenyi\AppData\Roaming\npm-cache\_logs\2017-09-29T13_38_56_439Z-debug.log
+
+{% endhighlight %}
+
+于是我就查了很多相关的博客寻找解决办法，最后发现是问题出在rsa证书。
+
+那么怎么解决？ 首先需要找到一个 .npmrc 的文件，看一下里面的内容是否和下面的一样。不一样就复制进去
+
+{% highlight ruby %}
+-----BEGIN RSA PRIVATE KEY-----
+MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCHLMCvgZGJuJ2I
+...
+qWW232xBX9o51hRgrr8y82OsBDrQ7epuuHhrbNZzAHEjUKnIlyc3eeSrmSL7FaiL
++Cs3Hxv0A==
+-----END RSA PRIVATE KEY-----
+
+{% endhighlight %}
+
+如愿得到解决
